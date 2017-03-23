@@ -34,6 +34,8 @@ Acknowledgement
 The ArabMoney team would like to thank all the authors and contributors from the sass community, angularjs, jquerylite team, ruby, php , all the
 contributors to the Arabmoney project and you, the arabmoney user.
 
+* use the ## admin@admin.com ## for the username and ## password ## for the password
+
 ###################
 God Bless You All. www.arabnaira.com
 ###################
