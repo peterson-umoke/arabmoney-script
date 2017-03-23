@@ -18,6 +18,11 @@ class Dashboard extends CI_Controller {
 
     }
 
+    public function welcome() {
+        echo "welcome to the admin backend";
+        echo "\n ".$this->session->userdata("account_type");
+    }
+
     public function __destruct() {
         
     }

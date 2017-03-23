@@ -116,26 +116,98 @@ class OfficeKey {
 		return TRUE;
 	}
 
+	/**
+	 * [login description]
+	 * @param  [type] $identity [description]
+	 * @param  [type] $pwd      [description]
+	 * @return boolean           [description]
+	 */
 	public function login($identity,$pwd) {
-		$this->officekey_model->login($identity,$pwd);
+		if($this->officekey_model->login($identity,$pwd)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
-	public function logged_in() {
-		
+	/**
+	 * logged_in
+	 *
+	 * @return bool
+	 * @author Mathew
+	 **/
+	public function logged_in()
+	{
+        return $this->officekey_model->recheck_session();
 	}
 
+	/**
+	 * [create_backoffice_user description]
+	 * @param  [type] $first_name      [description]
+	 * @param  [type] $last_name       [description]
+	 * @param  [type] $identity        [description]
+	 * @param  [type] $password        [description]
+	 * @param  [type] $mobile          [description]
+	 * @param  array  $additional_data [description]
+	 * @return [type]                  [description]
+	 */
 	public function create_backoffice_user($first_name, $last_name, $identity, $password,$mobile, $additional_data = array()) {
 		$this->officekey_model->create_office_user("backoffice",$first_name,$last_name,$identity,$password,$mobile,$additional_data);
 
 		return TRUE;
 	}
 
+	/**
+	 * [create_frontoffice_user description]
+	 * @param  [type] $first_name      [description]
+	 * @param  [type] $last_name       [description]
+	 * @param  [type] $identity        [description]
+	 * @param  [type] $password        [description]
+	 * @param  [type] $mobile          [description]
+	 * @param  array  $additional_data [description]
+	 * @return [boolean]                  [description]
+	 */
 	public function create_frontoffice_user($first_name, $last_name, $identity, $password,$mobile, $additional_data = array()) {
 		$this->officekey_model->create_office_user("frontoffice",$first_name,$last_name,$identity,$password,$mobile,$additional_data);
 
 		return TRUE;
 	}
 
+	/**
+	 * [is_backoffice_user description]
+	 * @param  [type]  $table_name [description]
+	 * @param  boolean $id         [description]
+	 * @return boolean             [description]
+	 */
+	public function is_backoffice_user() {
+		$account_type = strtolower($this->session->userdata("account_type"));
+		$user_id = $this->session->userdata("user_id");
+
+		if($account_type == "backoffice_users" && $this->logged_in()) {
+			return $this->officekey_model->does_user_exist($account_type,$user_id);
+		}
+	}
+
+	/**
+	 * [is_frontoffice_user description]
+	 * @param  [type]  $table_name [description]
+	 * @param  boolean $id         [description]
+	 * @return boolean             [description]
+	 */
+	public function is_frontoffice_user() {
+		$account_type = strtolower($this->session->userdata("account_type"));
+		$user_id = $this->session->userdata("user_id");
+
+		if($account_type == "frontoffice_users" && $this->logged_in()) {
+			return $this->officekey_model->does_user_exist($account_type,$user_id);
+		}
+	}
+ 
+	/**
+	 * [_debug_result description]
+	 * @param  array  $args [description]
+	 * @return [html]       [description]
+	 */
 	public function _debug_result($args = array()) {
 		echo "<pre>".PHP_EOL;
 		print_r($args);

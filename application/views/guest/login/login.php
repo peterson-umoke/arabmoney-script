@@ -1,3 +1,13 @@
+<?php 
+
+if($userauth == TRUE) {
+	$url = site_url('login?secret_key='.$secret_key.'&&redirect_page='.$redirect_page.'&&userauth=1');
+} else {
+	$url = uri_string();
+}
+
+?>
+
 <!-- breadcrumbs -->
 	<div class="breadcrumbs">
 		<div class="container">
@@ -14,8 +24,16 @@
 			<h2>The FrontOffice</h2>
 					
 			<div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
-				<?php echo validation_errors(); ?>
-				<?php echo form_open(uri_string(),"id='loginForm' class='login_form'"); ?>
+				<?php 
+					if(is_array($message)): 
+						for ($i=0; $i < count($message); $i++) { 
+							echo $message[$i];
+						}
+					else:
+						echo $message;
+					endif;
+				?>
+				<?php echo form_open($url,"id='loginForm' class='login_form'"); ?>
 					<input type="text" placeholder="Email Address" name="identity">
 					<input type="password" placeholder="Password" name="password">
 					<div class="forgot">

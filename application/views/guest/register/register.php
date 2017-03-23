@@ -13,19 +13,22 @@
 		<div class="container">
 			<h2>Register Here</h2>
 			<div class="login-form-grids">
-				<h5>profile information</h5>
-				<form action="#" method="post">
-					<input type="text" placeholder="First Name..." required=" " >
-					<input type="text" placeholder="Last Name..." required=" " >
-				</form>
-				<h6>Login information</h6>
-					<form action="#" method="post">
-					<input type="email" placeholder="Email Address" required=" " >
-					<input type="password" placeholder="Password" required=" " >
-					<input type="password" placeholder="Password Confirmation" required=" " >
+				<?php echo isset($message) ? $message ."<br/>": ""; ?>
+				<?php echo form_open(uri_string(),'name="register_form" id="register_form" class="register_form"'); ?>
+					<h5>profile information</h5>
+
+					<?php echo form_input($fname); ?>
+					<?php echo form_input($lname); ?>
+				
+					<h6>Login information</h6>
+					
+					<?php echo form_input($email); ?>
+					<?php echo form_input($password); ?>
+					<?php echo form_input($password_check); ?>
 					<div class="register-check-box">
 						<div class="check">
-							<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>I accept the terms and conditions</label>
+							<label class="" for="checkbox_sign"><?php echo form_checkbox('terms_and_conditions', 'Terms and conditons', TRUE,'id="checkbox_sign"'); ?> <i> </i>I accept the terms and conditions</label>
+
 						</div>
 					</div>
 					<input type="submit" value="Register">

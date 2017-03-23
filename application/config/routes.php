@@ -64,7 +64,8 @@ $route['contact-us'] = "welcome/contact_us";
 $route['about-us'] = "welcome/about_us";
 $route['login'] = "welcome/login";
 $route['register'] = "welcome/register";
-$route['privacy-policy'] = "welcome/privacy_policy";
+$route['privacy-policy'] = "welcome/privacy_policies";
+$route['privacy-policies'] = "welcome/privacy_policies";
 $route['terms-and-conditions'] = "welcome/terms_and_conditions";
 $route['account/login'] = "welcome/login";
 $route['account/register'] = "welcome/register";
@@ -72,3 +73,7 @@ $route['account/forgot_password'] = "welcome/forgot_password";
 $route['account/change_password'] = "welcome/change_password";
 $route['account/logout'] = "welcome/logout";
 $route['index.html'] = "welcome/index";
+
+// frontoffice routes
+$route['frontoffice/logout'] = "welcome/logout";
+$route['frontoffice/account/logout'] = "welcome/logout";

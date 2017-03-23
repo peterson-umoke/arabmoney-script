@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or die("NO DIRECT SCRIPT CALL IS ALLOWED");
 
-class Central_Accounts extends CI_Controller {
+class Account extends CI_Controller {
     
     // the data array elements
     public $data;
@@ -15,6 +15,10 @@ class Central_Accounts extends CI_Controller {
     }
 
     public function index() {
+
+    }
+
+    public function complete_profile($user_id = NULL) {
 
     }
 

@@ -15,7 +15,12 @@ class Dashboard extends CI_Controller {
     }
 
     public function index() {
+        redirect("frontoffice/dashboard/welcome","refresh");
+    }
 
+    public function welcome() {
+        echo "welcome to the customer dashboard";
+        echo "\n ".$this->session->userdata("account_type");
     }
 
     public function __destruct() {

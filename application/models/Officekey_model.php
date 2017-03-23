@@ -80,7 +80,7 @@ class Officekey_model extends CI_Model {
 					    'user_id'              => $single_user->id, //everyone likes to overwrite id so we'll use user_id
 					    'old_last_login'       => $single_user->last_login,
 					    'last_check'           => time(),
-					    "account_type"			=> "BACKOFFICE",
+					    "account_type"			=> "backoffice_users",
 					);
 				$this->session->set_userdata($newdata);
 				$this->set_message("Successfully logged in");
@@ -112,7 +112,7 @@ class Officekey_model extends CI_Model {
 					    'email'                => $single_user->email,
 					    'user_id'              => $single_user->id, //everyone likes to overwrite id so we'll use user_id
 					    'last_check'           => time(),
-					    "account_type"			=> "FRONTOFFICE",
+					    "account_type"			=> "frontOffice_users",
 						);
 					$this->session->set_userdata($newdata);
 					$this->set_message("Successfully logged in");
@@ -362,4 +362,52 @@ class Officekey_model extends CI_Model {
 		// just return the string IP address now for better compatibility
 		return $ip_address;
 	}
+
+	public function recheck_session($tablename = "frontOffice_users")
+    {
+        $recheck = (null !== $this->config->item('recheck_timer')) ? $this->config->item('recheck_timer') : 0;
+
+        if($recheck!==0)
+        {
+            $last_login = $this->session->userdata('last_check');
+            if($last_login+$recheck < time())
+            {
+                $query = $this->db->select('id')
+                    ->where(array($this->identity=>$this->session->userdata('identity')))
+                    ->limit(1)
+                    ->order_by('id', 'desc')
+                    ->get($this->tables[$tablename]);
+                if ($query->num_rows() === 1)
+                {
+                    $this->session->set_userdata('last_check',time());
+                }
+                else
+                {
+                    $identity = $this->config->item('identity');
+
+                    if (substr(CI_VERSION, 0, 1) == '2')
+                    {
+                        $this->session->unset_userdata( array($identity => '', 'id' => '', 'user_id' => '') );
+                    }
+                    else
+                    {
+                        $this->session->unset_userdata( array($identity, 'id', 'user_id') );
+                    }
+                    return false;
+                }
+            }
+        }
+
+        return (bool) $this->session->userdata('identity');
+    }
+
+    public function does_user_exist($account_type, $user_id) {
+    	$query = $this->db->get_where($account_type,array("id" => $user_id),1);
+
+    	if($query->num_rows() == 1) {
+    		return true;
+    	} else {
+    		return false;
+    	}
+    }
 }
