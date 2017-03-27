@@ -77,3 +77,4 @@ $route['index.html'] = "welcome/index";
 // frontoffice routes
 $route['frontoffice/logout'] = "welcome/logout";
 $route['frontoffice/account/logout'] = "welcome/logout";
+$route['frontoffice/account/login'] = "welcome/login";
