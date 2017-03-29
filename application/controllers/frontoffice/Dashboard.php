@@ -77,9 +77,12 @@ class Dashboard extends CI_Controller {
 		$this->data['description'] = "The FrontOffice Homepage";
 
 		// load the view needed
-		$this->data['content_site'] = $this->_show_page("welcome/content",$this->data,TRUE);
-
-		echo json_encode($this->data);
+		$this->_show_page("templates/top-header",$this->data);
+		$this->_show_page("welcome/header",$this->data);
+		$this->_show_page("templates/nav",$this->data);
+		$this->_show_page("welcome/content",$this->data);
+		$this->_show_page("welcome/footer",$this->data);
+		$this->_show_page("templates/bottom-footer",$this->data);
 	}
 
 	public function account_setup() {
@@ -90,10 +93,13 @@ class Dashboard extends CI_Controller {
 		$this->data['description'] = "Update your account settings here and update your profile picture as well";
 		$this->data['single_user'] = $this->officekey->user();
 
-		// content
-		$this->data['content_site'] = $this->_show_page("account_setup/content",$this->data,TRUE);
-
-		echo json_encode($this->data);
+		// load the view needed
+		$this->_show_page("templates/top-header",$this->data);
+		$this->_show_page("account_setup/header",$this->data);
+		$this->_show_page("templates/nav",$this->data);
+		$this->_show_page("account_setup/content",$this->data);
+		$this->_show_page("account_setup/footer",$this->data);
+		$this->_show_page("templates/bottom-footer",$this->data);
 	}
 
 	public function list_transactions() {
@@ -103,9 +109,12 @@ class Dashboard extends CI_Controller {
 		$this->data['single_user'] = $this->officekey->user();
 
 		// load the view needed
-		$this->data['content_site'] = $this->_show_page("list_transactions/content",$this->data,true);
-
-		echo json_encode($this->data);
+		$this->_show_page("templates/top-header",$this->data);
+		$this->_show_page("list_transactions/header",$this->data);
+		$this->_show_page("templates/nav",$this->data);
+		$this->_show_page("list_transactions/content",$this->data);
+		$this->_show_page("list_transactions/footer",$this->data);
+		$this->_show_page("templates/bottom-footer",$this->data);
 	}
 
 		public function general_settings() {
@@ -116,9 +125,12 @@ class Dashboard extends CI_Controller {
 		$this->data['single_user'] = $this->officekey->user();
 
 		// load the view needed
-		$this->data['content_site'] = $this->_show_page("general_settings/content",$this->data,true);
-
-		echo json_encode($this->data);
+		$this->_show_page("templates/top-header",$this->data);
+		$this->_show_page("general_settings/header",$this->data);
+		$this->_show_page("templates/nav",$this->data);
+		$this->_show_page("general_settings/content",$this->data);
+		$this->_show_page("general_settings/footer",$this->data);
+		$this->_show_page("templates/bottom-footer",$this->data);
 	}
 
 	public function advanced_settings() {
@@ -129,9 +141,12 @@ class Dashboard extends CI_Controller {
 		$this->data['single_user'] = $this->officekey->user();
 
 		// load the view needed
-		$this->data['content_site'] = $this->_show_page("advanced_settings/content",$this->data,true);
-
-		echo json_encode($this->data);
+		$this->_show_page("templates/top-header",$this->data);
+		$this->_show_page("advanced_settings/header",$this->data);
+		$this->_show_page("templates/nav",$this->data);
+		$this->_show_page("advanced_settings/content",$this->data);
+		$this->_show_page("advanced_settings/footer",$this->data);
+		$this->_show_page("templates/bottom-footer",$this->data);
 	}
 
 	/**
