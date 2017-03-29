@@ -202,6 +202,11 @@ class OfficeKey {
 			return $this->officekey_model->does_user_exist($account_type,$user_id);
 		}
 	}
+
+	public function user($id = NULL) {
+		$id = $this->session->userdata("user_id");
+		return $this->officekey_model->edit_office_user($id);
+	}
  
 	/**
 	 * [_debug_result description]

@@ -35,30 +35,34 @@ function get_plugins_url() {
 }
 
 function bootstrap_css_url() {
-	echo get_css_url().'/bootstrap.min.css';
+	return get_css_url().'/bootstrap.min.css';
 }
 
 function bootstrap_theme_css_url() {
-	echo get_css_url().'/bootstrap-theme.min.css';
+	return get_css_url().'/bootstrap-theme.min.css';
 }
 
 function bootstrap_js_url() {
-	echo get_script_url().'/bootstrap.min.js';
+	return get_script_url().'/bootstrap.min.js';
 }
 
 function jquery_js_url() {
-	echo get_script_url().'/vendor/jquery-1.11.2.min.js';
+	return get_script_url().'/vendor/jquery-1.11.2.min.js';
+}
+
+function jquery_migrate_js_url() {
+	return get_script_url().'/vendor/jquery-migrate.min.js';
 }
 
 function modernizr_js_url() {
-	echo get_script_url().'/vendor/modernizr-2.8.3-respond-1.4.2.min.js';
+	return get_script_url().'/vendor/modernizr-2.8.3-respond-1.4.2.min.js';
 }
 
 function admin_dashboard_css_url() {
-	echo get_css_url().'/AdminLTE.min.css';
+	return get_css_url().'/AdminLTE.min.css';
 }
 
 // spit the function out
 function assets_url() {
-	echo get_assets_url();
+	return get_assets_url();
 }
