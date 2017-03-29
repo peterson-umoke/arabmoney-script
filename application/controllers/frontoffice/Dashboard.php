@@ -59,7 +59,7 @@ class Dashboard extends CI_Controller {
 		// load the view needed
 		$this->_show_page("templates/top-header",$this->data);
 		$this->_show_page("index/header",$this->data);
-		$this->_show_page("templates/nav",$this->data);
+		$this->_show_page("index/nav",$this->data);
 		$this->_show_page("index/content",$this->data);
 		$this->_show_page("index/footer",$this->data);
 		$this->_show_page("templates/bottom-footer",$this->data);
@@ -79,7 +79,7 @@ class Dashboard extends CI_Controller {
 		// load the view needed
 		$this->_show_page("templates/top-header",$this->data);
 		$this->_show_page("welcome/header",$this->data);
-		$this->_show_page("templates/nav",$this->data);
+		$this->_show_page("welcome/nav",$this->data);
 		$this->_show_page("welcome/content",$this->data);
 		$this->_show_page("welcome/footer",$this->data);
 		$this->_show_page("templates/bottom-footer",$this->data);
@@ -96,7 +96,7 @@ class Dashboard extends CI_Controller {
 		// load the view needed
 		$this->_show_page("templates/top-header",$this->data);
 		$this->_show_page("account_setup/header",$this->data);
-		$this->_show_page("templates/nav",$this->data);
+		$this->_show_page("account_setup/nav",$this->data);
 		$this->_show_page("account_setup/content",$this->data);
 		$this->_show_page("account_setup/footer",$this->data);
 		$this->_show_page("templates/bottom-footer",$this->data);
@@ -111,7 +111,7 @@ class Dashboard extends CI_Controller {
 		// load the view needed
 		$this->_show_page("templates/top-header",$this->data);
 		$this->_show_page("list_transactions/header",$this->data);
-		$this->_show_page("templates/nav",$this->data);
+		$this->_show_page("list_transactions/nav",$this->data);
 		$this->_show_page("list_transactions/content",$this->data);
 		$this->_show_page("list_transactions/footer",$this->data);
 		$this->_show_page("templates/bottom-footer",$this->data);
@@ -127,7 +127,7 @@ class Dashboard extends CI_Controller {
 		// load the view needed
 		$this->_show_page("templates/top-header",$this->data);
 		$this->_show_page("general_settings/header",$this->data);
-		$this->_show_page("templates/nav",$this->data);
+		$this->_show_page("general_settings/nav",$this->data);
 		$this->_show_page("general_settings/content",$this->data);
 		$this->_show_page("general_settings/footer",$this->data);
 		$this->_show_page("templates/bottom-footer",$this->data);
@@ -143,7 +143,7 @@ class Dashboard extends CI_Controller {
 		// load the view needed
 		$this->_show_page("templates/top-header",$this->data);
 		$this->_show_page("advanced_settings/header",$this->data);
-		$this->_show_page("templates/nav",$this->data);
+		$this->_show_page("advanced_settings/nav",$this->data);
 		$this->_show_page("advanced_settings/content",$this->data);
 		$this->_show_page("advanced_settings/footer",$this->data);
 		$this->_show_page("templates/bottom-footer",$this->data);
