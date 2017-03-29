@@ -15,12 +15,12 @@
 			<!-- sidebar menu: : style can be found in sidebar.less -->
 			<ul class="sidebar-menu">
 				<li class="header">MAIN NAVIGATION</li>
-				<li class="treeview ajaxify_link">
+				<li class="treeview active">
 		          <a href="<?php echo site_url("frontoffice/welcome"); ?>">
 		            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
 		          </a>
 		        </li>
-		        <li class="treeview ajaxify_link">
+		        <li class="treeview ">
 		          <a href="<?php echo site_url("frontoffice/account/edit/{$single_user['id']}"); ?>">
 		            <i class="fa fa-group"></i> <span>Your Account</span>
 		          </a>
@@ -33,7 +33,7 @@
 		            </span>
 		          </a>
 		          <ul class="treeview-menu">
-		            <li class="ajaxify_link"><a href="<?php echo site_url("frontoffice/all-transactions"); ?>"><i class="fa fa-circle-o"></i> All Transactions</a></li>
+		            <li class=""><a href="<?php echo site_url("frontoffice/all-transactions"); ?>"><i class="fa fa-circle-o"></i> All Transactions</a></li>
 		          </ul>
 		        </li>
 		        <li class="treeview">
@@ -44,8 +44,8 @@
 		            </span>
 		          </a>
 		          <ul class="treeview-menu">
-		            <li class="ajaxify_link"><a href="<?php echo site_url("frontoffice/settings"); ?>"><i class="fa fa-wrench"></i> General</a></li>
-		            <li class="ajaxify_link"><a href="<?php echo site_url("frontoffice/settings/advanced_settings"); ?>"><i class="fa fa-user-times"></i> Advanced</a></li>
+		            <li class=""><a href="<?php echo site_url("frontoffice/settings"); ?>"><i class="fa fa-wrench"></i> General</a></li>
+		            <li class=""><a href="<?php echo site_url("frontoffice/settings/advanced_settings"); ?>"><i class="fa fa-user-times"></i> Advanced</a></li>
 		          </ul>
 		        </li>
 			</ul>

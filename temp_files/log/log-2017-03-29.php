@@ -137,3 +137,33 @@ DEBUG - 2017-03-29 18:37:38 --> Global POST, GET and COOKIE data sanitized
 DEBUG - 2017-03-29 18:37:38 --> Config file loaded: C:\xampp\htdocs\Arabnaira\application\config/office_setup.php
 DEBUG - 2017-03-29 18:37:38 --> Session class already loaded. Second attempt ignored.
 DEBUG - 2017-03-29 18:37:38 --> Config file loaded: C:\xampp\htdocs\Arabnaira\application\config/assets.php
+DEBUG - 2017-03-29 18:49:15 --> UTF-8 Support Enabled
+DEBUG - 2017-03-29 18:49:15 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-29 18:49:15 --> Config file loaded: C:\xampp\htdocs\Arabnaira\application\config/office_setup.php
+DEBUG - 2017-03-29 18:49:16 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2017-03-29 18:49:16 --> Config file loaded: C:\xampp\htdocs\Arabnaira\application\config/assets.php
+DEBUG - 2017-03-29 18:49:16 --> UTF-8 Support Enabled
+DEBUG - 2017-03-29 18:49:16 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-29 18:49:17 --> Config file loaded: C:\xampp\htdocs\Arabnaira\application\config/office_setup.php
+DEBUG - 2017-03-29 18:49:17 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2017-03-29 18:49:17 --> Officekey class already loaded. Second attempt ignored.
+DEBUG - 2017-03-29 18:49:17 --> Total execution time: 0.3660
+DEBUG - 2017-03-29 18:49:38 --> UTF-8 Support Enabled
+DEBUG - 2017-03-29 18:49:38 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2017-03-29 18:49:38 --> 404 Page Not Found: Public_assets/images
+DEBUG - 2017-03-29 18:49:51 --> UTF-8 Support Enabled
+DEBUG - 2017-03-29 18:49:51 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-29 18:49:51 --> Config file loaded: C:\xampp\htdocs\Arabnaira\application\config/office_setup.php
+DEBUG - 2017-03-29 18:49:51 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2017-03-29 18:49:51 --> Officekey class already loaded. Second attempt ignored.
+DEBUG - 2017-03-29 18:49:52 --> UTF-8 Support Enabled
+DEBUG - 2017-03-29 18:49:52 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-29 18:49:52 --> Config file loaded: C:\xampp\htdocs\Arabnaira\application\config/office_setup.php
+DEBUG - 2017-03-29 18:49:52 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2017-03-29 18:49:52 --> Officekey class already loaded. Second attempt ignored.
+DEBUG - 2017-03-29 18:49:52 --> UTF-8 Support Enabled
+DEBUG - 2017-03-29 18:49:53 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-29 18:49:53 --> Config file loaded: C:\xampp\htdocs\Arabnaira\application\config/office_setup.php
+DEBUG - 2017-03-29 18:49:53 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2017-03-29 18:49:53 --> Config file loaded: C:\xampp\htdocs\Arabnaira\application\config/assets.php
+DEBUG - 2017-03-29 18:49:53 --> Total execution time: 0.1580
