@@ -114,7 +114,7 @@
 		                    <label for="bank_name" class="col-sm-2 control-label">Bank Name</label>
 
 		                    <div class="col-sm-10">
-		                      <?php echo form_dropdown('bank_name', $bank_name_options, isset($bank_name) ? $bank_name : set_value("bank_name"),"class=\"form-control bank_name\" style=\"width: 100%;\" id='bank_name'"); ?>
+		                      <?php echo form_dropdown('bank_name', $bank_name_options, (!empty($bank_name)) ? $bank_name : set_value("bank_name"),"class=\"form-control bank_name\" style=\"width: 100%;\" id='bank_name'"); ?>
 		                    </div>
 		                  </div>
 		                  <div class="form-group">

@@ -180,3 +180,15 @@ DEBUG - 2017-03-31 08:48:12 --> Config file loaded: C:\xampp\htdocs\Arabnaira\ap
 DEBUG - 2017-03-31 08:48:13 --> Session class already loaded. Second attempt ignored.
 DEBUG - 2017-03-31 08:48:13 --> Config file loaded: C:\xampp\htdocs\Arabnaira\application\config/assets.php
 DEBUG - 2017-03-31 08:48:13 --> Total execution time: 0.1000
+DEBUG - 2017-03-31 08:53:57 --> UTF-8 Support Enabled
+DEBUG - 2017-03-31 08:53:57 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-31 08:53:57 --> Config file loaded: C:\xampp\htdocs\Arabnaira\application\config/office_setup.php
+DEBUG - 2017-03-31 08:53:57 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2017-03-31 08:53:57 --> Config file loaded: C:\xampp\htdocs\Arabnaira\application\config/assets.php
+DEBUG - 2017-03-31 08:53:57 --> Total execution time: 0.1940
+DEBUG - 2017-03-31 08:54:03 --> UTF-8 Support Enabled
+DEBUG - 2017-03-31 08:54:03 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-31 08:54:03 --> Config file loaded: C:\xampp\htdocs\Arabnaira\application\config/office_setup.php
+DEBUG - 2017-03-31 08:54:03 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2017-03-31 08:54:03 --> Config file loaded: C:\xampp\htdocs\Arabnaira\application\config/assets.php
+DEBUG - 2017-03-31 08:54:04 --> Total execution time: 0.1040
