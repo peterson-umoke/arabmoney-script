@@ -21,7 +21,8 @@
 			</div>
 
 			<?php if($message_to_user): ?>
-				<div class="alert alert-danger inner_alert">
+				<div class="alert alert-danger inner_alert alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4>
 						<i class="fa fa-info-circle"></i> Alert
 					</h4>
@@ -87,20 +88,6 @@
 
 		                    <div class="col-sm-10">
 		                      <input type="text" maxlength="11" value="<?php echo ($mobile != 0) ? $mobile : set_value("mobile"); ?>" class="form-control" name="mobile" id="mobile" placeholder="Phone Number">
-		                    </div>
-		                  </div>
-		                  <div class="form-group">
-		                    <label for="password" class="col-sm-2 control-label">Password</label>
-
-		                    <div class="col-sm-10">
-		                      <input type="password" name="password" class="form-control" id="password" placeholder="Password">
-		                    </div>
-		                  </div>
-		                  <div class="form-group">
-		                    <label for="password_two" class="col-sm-2 control-label">Repeat Password</label>
-
-		                    <div class="col-sm-10">
-		                      <input type="password" name="password_two" class="form-control" id="password_two" placeholder="Repeat Password">
 		                    </div>
 		                  </div>
 		                  <button class="btn btn-primary btn-block">Update Profile</button>

@@ -104,11 +104,12 @@
 							</div>
 						</div>
 						<div class="box-body">
+							<div class="row col-md-6 col-sm-8 col-xs-12">
 							<table class="table no-border">
 								<tr>
 									<td>Bank Name: </td>
 									<td><em>
-									<?php if($bank_name != 0 && !is_null($bank_name) && !empty($bank_name)) {
+									<?php if(!empty($bank_name)) {
 										echo $bank_name;
 									} else {
 										$url = site_url("frontoffice/account/edit_profile");
@@ -120,7 +121,7 @@
 								<tr>
 									<td>Account Name: </td>
 									<td><em>
-										<?php if($account_name != 0 && !is_null($account_name) && !empty($account_name)) {
+										<?php if(!empty($account_name)) {
 										echo $account_name;
 									} else {
 										$url = site_url("frontoffice/account/edit_profile");
@@ -132,7 +133,7 @@
 								<tr>
 									<td>Account Number: </td>
 									<td><em>
-										<?php if($account_number != 0 && !is_null($account_number) && !empty($account_number)) {
+										<?php if(!empty($account_number)) {
 										echo $account_number;
 									} else {
 										$url = site_url("frontoffice/account/edit_profile");
@@ -146,6 +147,7 @@
 									<td><em><?php echo strtoupper('Savings'); ?></em></td>
 								</tr>
 							</table>
+							</div>
 						</div>
 						<div class="box-footer bg-success box-solid">
 							<b> N.B: </b> All Accounts registered will be recognized as <EM> <STRONG> SAVINGS ACCOUNT TYPE </STRONG></EM>

@@ -209,7 +209,7 @@ class Officekey_model extends CI_Model {
      */
      public function update_office_user($id,$data = array(),$table = "frontoffice") {
 
-    	$this->db->udpate($this->table_name[$table],$data,"id = {$id}");
+    	$this->db->update($this->table_name[$table],$data,"id = {$id}");
 
     	return TRUE;
     }

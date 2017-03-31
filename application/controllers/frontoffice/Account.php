@@ -111,7 +111,7 @@ class Account extends CI_Controller {
 				"Ecobank" => "Ecobank",
 				"Fedility Bank" => "Fedility Bank",
 				"First Bank" => "First Bank",
-				"First City Monument Bank(FCMB)" => "First City Monument Bank(FCMB)",
+				"FCMB" => "First City Monument Bank(FCMB)",
 				"Guarantee Trust Bank(GT-Bank)" => "Guarantee Trust Bank(GT-Bank)",
 				"Heritage Bank" => "Heritage Bank",
 				"Keystone Bank" => "Keystone Bank",
@@ -120,7 +120,7 @@ class Account extends CI_Controller {
 				"Standard Chartered Bank" => "Standard Chartered Bank",
 				"Sterling Bank" => "Sterling Bank",
 				"Union Bank" => "Union Bank",
-				"United Bank for Africa(UBA)" => "United Bank for Africa(UBA)",
+				"UBA" => "United Bank for Africa(UBA)",
 				"Unity Bank" => "Unity Bank",
 				"Wema Bank" => "Wema Bank",
 				"Zenith Bank" => "Zenith Bank",
@@ -129,8 +129,8 @@ class Account extends CI_Controller {
 		$this->form_validation->set_rules('first_name', 'First Name', 'required|min_length[3]|max_length[30]');
         $this->form_validation->set_rules('last_name', 'Last Name', 'required|min_length[3]|max_length[30]');
         $this->form_validation->set_rules('mobile', 'Phone Number', 'required|min_length[11]|max_length[11]|numeric');
-        $this->form_validation->set_rules('password', 'Password');
-        $this->form_validation->set_rules('password_two', 'Repeat Password', 'matches[password]');
+        // $this->form_validation->set_rules('password', 'Password');
+        // $this->form_validation->set_rules('password_two', 'Repeat Password', 'matches[password]');
         $this->form_validation->set_rules('bank_name', 'Bank Name', 'required|alpha_numeric_spaces');
         $this->form_validation->set_rules('account_name', 'Account Name', 'required');
         $this->form_validation->set_rules('account_number', 'Account Number', 'required|max_length[10]|numeric');
@@ -140,10 +140,7 @@ class Account extends CI_Controller {
 			$current_user_id = $this->session->userdata("user_id");
 			$update_sql['first_name'] = $this->input->post("first_name");
 			$update_sql['last_name'] = $this->input->post("last_name");
-			$update_sql['email'] = $this->input->post("email");
 			$update_sql['mobile'] = $this->input->post("mobile");
-			$update_sql['password'] = $this->input->post("password");
-			$update_sql['password_two'] = $this->input->post("password_two");
 			$update_sql['bank_name'] = $this->input->post("bank_name");
 			$update_sql['account_name'] = $this->input->post("account_name");
 			$update_sql['account_number'] = $this->input->post("account_number");
@@ -152,18 +149,18 @@ class Account extends CI_Controller {
 			if ($this->officekey->update_frontoffice_user($current_user_id,$update_sql))
 			{
 				//if the udpation is successful
-				$this->data['message'] = $this->session->set_flashdata('message', "Saved");
+				$this->session->set_flashdata('information_message', "Successfully updated your profile");
+				redirect(uri_string());
 			}
 			else
 			{
-				// if the registration was un-successful
-				// redirect them back to the register page
-				$this->data['message'] = $this->session->set_flashdata('message', "Not saved");
+				//if the udpation is un-successful
+				$this->session->set_flashdata('information_message', "Unable to Update Profile");
+				redirect(uri_string());
 			}
 			
 		} else {
-			$this->data['message_to_user'] = validation_errors();
-			echo $this->input->post("bank_name");
+			$this->data['message_to_user'] = (validation_errors()) ? validation_errors() : $this->session->flashdata('information_message');
 			// load the view needed
 			$this->_show_page("templates/top-header",$this->data);
 			$this->_show_page("templates/header",$this->data);

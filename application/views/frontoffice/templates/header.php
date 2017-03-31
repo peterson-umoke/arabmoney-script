@@ -62,7 +62,7 @@
 							<div class="list-group" style="margin-bottom:0;">
 								<a href="<?php echo site_url("frontoffice/account"); ?>" class="list-group-item">View Profile</a>
 								<a href="<?php echo site_url("frontoffice/account/edit_profile"); ?>" class="list-group-item">Edit Profile</a>
-								<!-- <a href="<?php echo site_url("frontoffice/account/change_password"); ?>" class="list-group-item">Change Password</a> -->
+								<a href="<?php echo site_url("frontoffice/account/change_password"); ?>" class="list-group-item">Change Password</a>
 							</div>
 						</li>
 						<!-- Menu Footer-->

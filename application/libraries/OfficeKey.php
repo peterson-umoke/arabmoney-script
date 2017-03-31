@@ -210,10 +210,14 @@ class OfficeKey {
 
 	public function update_frontoffice_user($id,$data = array(),$table = "frontoffice") {
 		$this->officekey_model->update_office_user($id,$data,$table);
+
+		return true;
 	}
 
 	public function update_backoffice_user($id,$data = array(),$table = "backoffice") {
 		$this->officekey_model->update_office_user($id,$data,$table);
+
+		return true;
 	}
  
 	/**
