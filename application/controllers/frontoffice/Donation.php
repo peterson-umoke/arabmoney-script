@@ -1,9 +1,9 @@
 <?php defined('BASEPATH') or die("NO DIRECT SCRIPT CALL IS ALLOWED");
 
-class Dashboard extends CI_Controller {
-	
+class Donation extends CI_Controller {
+
 	// the data array elements
-	public $data;
+	public $data = array();
 
 	public function __construct() {
 		parent::__construct();
@@ -49,44 +49,70 @@ class Dashboard extends CI_Controller {
 		}
 	}
 
-	/**
-	 * the welcome method is simply the main landing page for the  homepage
-	 * @return void
-	 */
 	public function index() {
 		//data
-		$this->data['title'] = "Welcome to the FrontOffice";
-		$this->data['page_title'] = "<i class='fa fa-home'></i> Dashboard";
-		$this->data['seo_description'] = "The FrontOffice Homepage";
+		$this->data['title'] = "Make Donations";
+		$this->data['page_title'] = "<i class='fa fa-tripadvisor'></i> Make Payment";
+		$this->data['description'] = "Here you can choose which package buy into";
 		$this->data['single_user'] = $this->officekey->user();
-		$this->data['description'] = "The FrontOffice Homepage";
-
-		// load the view needed
-		$this->_show_page("templates/top-header",$this->data);
-		$this->_show_page("templates/header",$this->data);
-		$this->_show_page("templates/nav",$this->data);
-		$this->_show_page("dashboard/content",$this->data);
-		$this->_show_page("templates/footer",$this->data);
-		$this->_show_page("templates/bottom-footer",$this->data);
-	}
-
-	/**
-	 * the your_profile method
-	 * @return void
-	 */
-	public function your_profile() {
-		//data
-		$this->data['title'] = "View Profile";
-		$this->data['single_user'] = $this->officekey->user();
-		$this->data['description'] = "Here {$this->data['single_user']['first_name']} {$this->data['single_user']['last_name']}, you can view your personal profile";
-		$this->data['page_title'] = "<i class='fa fa-user'></i> ".$this->data['single_user']['first_name']."'s Account";
 		$this->data['seo_description'] = "Here you can choose which package buy into";
 
 		// load the view needed
 		$this->_show_page("templates/top-header",$this->data);
 		$this->_show_page("templates/header",$this->data);
 		$this->_show_page("templates/nav",$this->data);
-		$this->_show_page("your_profile/content",$this->data);
+		$this->_show_page("make_donation/content",$this->data);
+		$this->_show_page("templates/footer",$this->data);
+		$this->_show_page("templates/bottom-footer",$this->data);
+	}
+
+	public function make() {
+		//data
+		$this->data['title'] = "Make Donations";
+		$this->data['page_title'] = "<i class='fa fa-tripadvisor'></i> Make Payment";
+		$this->data['description'] = "Here you can choose which package buy into";
+		$this->data['single_user'] = $this->officekey->user();
+		$this->data['seo_description'] = "Here you can choose which package buy into";
+
+		// load the view needed
+		$this->_show_page("templates/top-header",$this->data);
+		$this->_show_page("templates/header",$this->data);
+		$this->_show_page("templates/nav",$this->data);
+		$this->_show_page("make_donation/content",$this->data);
+		$this->_show_page("templates/footer",$this->data);
+		$this->_show_page("templates/bottom-footer",$this->data);
+	}
+
+	public function request_history() {
+		//data
+		$this->data['title'] = "Make Donations";
+		$this->data['page_title'] = "<i class='fa fa-tripadvisor'></i> Make Payment";
+		$this->data['description'] = "Here you can choose which package buy into";
+		$this->data['single_user'] = $this->officekey->user();
+		$this->data['seo_description'] = "Here you can choose which package buy into";
+
+		// load the view needed
+		$this->_show_page("templates/top-header",$this->data);
+		$this->_show_page("templates/header",$this->data);
+		$this->_show_page("templates/nav",$this->data);
+		$this->_show_page("make_donation/content",$this->data);
+		$this->_show_page("templates/footer",$this->data);
+		$this->_show_page("templates/bottom-footer",$this->data);
+	}
+
+	public function make_history() {
+		//data
+		$this->data['title'] = "Make Donations";
+		$this->data['page_title'] = "<i class='fa fa-tripadvisor'></i> Make Payment";
+		$this->data['description'] = "Here you can choose which package buy into";
+		$this->data['single_user'] = $this->officekey->user();
+		$this->data['seo_description'] = "Here you can choose which package buy into";
+
+		// load the view needed
+		$this->_show_page("templates/top-header",$this->data);
+		$this->_show_page("templates/header",$this->data);
+		$this->_show_page("templates/nav",$this->data);
+		$this->_show_page("make_donation/content",$this->data);
 		$this->_show_page("templates/footer",$this->data);
 		$this->_show_page("templates/bottom-footer",$this->data);
 	}

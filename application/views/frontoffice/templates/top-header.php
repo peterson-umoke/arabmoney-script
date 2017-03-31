@@ -43,6 +43,19 @@
 	endif;
 ?>
 
+<script>
+
+jQuery(document).ready(function($) {
+	
+	// add active to certain navigation links
+	var url_click = window.location.origin + window.location.pathname;
+	if(url_click == "http://localhost/arabnaira/frontoffice/account/edit_profile" || url_click == "http://localhost/arabnaira/frontoffice/account") {
+		$("ul.sidebar-menu li").removeClass("active");
+        $("ul.sidebar-menu li > a[href='http://localhost/arabnaira/frontoffice/account']").parent().addClass("active");
+	}
+});
+</script>
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -50,11 +63,12 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-red sidebar-mini">
+<noscript> YOU NEED JAVASCRIPT TO USE THIS SITE PROPERLY </noscript>
 
 <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
 
 <!-- Site wrapper -->
-<div class="wrapper">
+<div class="wrapper" id="wrapper">

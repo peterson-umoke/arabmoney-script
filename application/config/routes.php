@@ -75,16 +75,8 @@ $route['account/logout'] = "welcome/logout";
 $route['index.html'] = "welcome/index";
 
 // frontoffice routes
-$route['frontoffice/logout'] = "welcome/logout";
-$route['frontoffice/account/logout'] = "welcome/logout";
+$route['frontoffice/logout'] = "account/logout";
 $route['frontoffice/account/login'] = "welcome/login";
 $route['frontoffice/dashboard/welcome'] = "frontoffice/dashboard";
 $route['frontoffice'] = "frontoffice/dashboard";
-$route['frontoffice/welcome'] = "frontoffice/dashboard/welcome";
-$route['frontoffice/account/complete_profile'] = "frontoffice/dashboard/account_setup";
-$route['frontoffice/account/edit/(:num)'] = "frontoffice/dashboard/account_setup";
-$route['frontoffice/all-transactions'] = "frontoffice/dashboard/list_transactions";
-$route['frontoffice/transactions/all-transactions'] = "frontoffice/dashboard/list_transactions";
-$route['frontoffice/settings'] = "frontoffice/dashboard/general_settings";
-$route['frontoffice/settings/general'] = "frontoffice/dashboard/general_settings";
-$route['frontoffice/settings/advanced_settings'] = "frontoffice/dashboard/advanced_settings";
+$route['frontoffice/welcome'] = "frontoffice/dashboard";

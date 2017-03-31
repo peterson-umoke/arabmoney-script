@@ -11,37 +11,41 @@
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" href="<?php echo site_url("apple-touch-icon.png"); ?>">
 
 <?php
-        if($necessary_styesheet_files):
-            echo "<!-- #necessary-stylesheet files -->".PHP_EOL;
-            foreach($necessary_styesheet_files as $id => $url) :
-                echo "<!-- import {$id}-css into the html file -->".PHP_EOL;
-                echo "<link type='text/css' rel='stylesheet' href='{$url}' id='{$id}-css' />".PHP_EOL;
-            endforeach;
-        endif;
+    // this is done to input line breaks in the html output
+    if($necessary_styesheet_files):
+        echo "<!-- #necessary-stylesheet files -->".PHP_EOL;
+        foreach($necessary_styesheet_files as $id => $url) :
+            echo "<!-- import {$id}-css into the html file -->".PHP_EOL;
+            echo "<link type='text/css' rel='stylesheet' href='{$url}' id='{$id}-css' />".PHP_EOL;
+        endforeach;
+    endif;
 
-        // import css files
-        if($stylesheet):
-            foreach($stylesheet as $id => $url) :
-                echo "<!-- import {$id}-css into the html file -->".PHP_EOL;
-                echo "<link type='text/css' rel='stylesheet' href='{$url}' id='{$id}-css' />".PHP_EOL;
-            endforeach;
-        endif;?>
+    // import css files
+    if($stylesheet):
+        foreach($stylesheet as $id => $url) :
+            echo "<!-- import {$id}-css into the html file -->".PHP_EOL;
+            echo "<link type='text/css' rel='stylesheet' href='{$url}' id='{$id}-css' />".PHP_EOL;
+        endforeach;
+    endif;
+?>
 
-<?php // this is done to input line breaks in the html output
-        if($necessary_javascript_files):
-            echo "<!-- #necessary-javascript files, jquery, jquery-migrate, modernizr -->".PHP_EOL;
-            foreach($necessary_javascript_files as $id => $url) :
-                echo "<!-- import {$id}-js into the html file -->".PHP_EOL;
-                echo "<script src=\"{$url}\"></script>".PHP_EOL;
-            endforeach;
-        endif;
+<?php 
+    // this is done to input line breaks in the html output
+    if($necessary_javascript_files):
+        echo "<!-- #necessary-javascript files, jquery, jquery-migrate, modernizr -->".PHP_EOL;
+        foreach($necessary_javascript_files as $id => $url) :
+            echo "<!-- import {$id}-js into the html file -->".PHP_EOL;
+            echo "<script src=\"{$url}\"></script>".PHP_EOL;
+        endforeach;
+    endif;
 ?>
 
 </head>
 <body>
+<noscript> YOU NEED JAVASCRIPT TO USE THIS SITE PROPERLY </noscript>
 
 <!--[if lt IE 8]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>

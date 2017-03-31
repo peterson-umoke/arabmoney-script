@@ -1,0 +1,16 @@
+/**
+ * This file is responsible for the whole overide of the admin css page for the main dashboard\
+ * Its main function is to add or overide the css classes that the author added
+ */
+
+.show-block {
+	display:block !important;
+}
+
+.text-white {
+	color:white !important;
+}
+
+.no-border {
+	border-width: 0 !important;
+}

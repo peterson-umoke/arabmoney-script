@@ -207,6 +207,14 @@ class OfficeKey {
 		$id = $this->session->userdata("user_id");
 		return $this->officekey_model->edit_office_user($id);
 	}
+
+	public function update_frontoffice_user($id,$data = array(),$table = "frontoffice") {
+		$this->officekey_model->update_office_user($id,$data,$table);
+	}
+
+	public function update_backoffice_user($id,$data = array(),$table = "backoffice") {
+		$this->officekey_model->update_office_user($id,$data,$table);
+	}
  
 	/**
 	 * [_debug_result description]

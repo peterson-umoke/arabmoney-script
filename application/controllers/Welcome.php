@@ -365,7 +365,7 @@ class Welcome extends CI_Controller {
 				//if the registration is successful
 				//redirect them back to the frontoffice
 				$this->data['message'] = $this->session->set_flashdata('message', $this->officekey->message());
-				redirect('login?secret_key='.random_string('alnum',300).'&&redirect_page='.urlencode(site_url('frontoffice/account/complete_profile')).'&&userauth=1', 'refresh');
+				redirect('login?secret_key='.random_string('alnum',300).'&&redirect_page='.urlencode(site_url('frontoffice/account/edit_profile')).'&&userauth=1', 'refresh');
 			}
 			else
 			{
