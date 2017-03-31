@@ -104,26 +104,26 @@ class Account extends CI_Controller {
 		$this->data['description'] = "Here you can edit your profile and change basic details";
 		$this->data['seo_description'] = "Here you can edit your profile and change basic details";
 		$this->data['bank_name_options'] = array(
-				"no-bank"	=> "---",
-				"access-bank" => "Access Bank",
-				"citi-bank" => "Citi Bank",
-				"diamond-bank" => "Diamond Bank",
-				"ecobank" => "Ecobank",
-				"fedility-bank" => "Fedility Bank",
-				"first-bank" => "First Bank",
-				"fcmb" => "FCMB",
-				"gtb" => "Guarantee Trust Bank(GT-Bank)",
-				"heritage-bank" => "Heritage Bank",
-				"keystone-bank" => "Keystone Bank",
-				"skye-bank" => "Skye Bank",
-				"stanbic-ibtc-bank" => "Stanbic IBTC Bank",
-				"standard-chartered-bank" => "Standard Chartered Bank",
-				"sterling-bank" => "Sterling Bank",
-				"union-bank" => "Union Bank",
-				"uba" => "United Bank for Africa(UBA)",
-				"unity-bank" => "Unity Bank",
-				"wema-bank" => "Wema Bank",
-				"zenith-bank" => "Zenith Bank",
+				"No Bank"	=> "---",
+				"Access Bank" => "Access Bank",
+				"Citi Bank" => "Citi Bank",
+				"Diamond Bank" => "Diamond Bank",
+				"Ecobank" => "Ecobank",
+				"Fedility Bank" => "Fedility Bank",
+				"First Bank" => "First Bank",
+				"First City Monument Bank(FCMB)" => "First City Monument Bank(FCMB)",
+				"Guarantee Trust Bank(GT-Bank)" => "Guarantee Trust Bank(GT-Bank)",
+				"Heritage Bank" => "Heritage Bank",
+				"Keystone Bank" => "Keystone Bank",
+				"Skye Bank" => "Skye Bank",
+				"Stanbic IBTC Bank" => "Stanbic IBTC Bank",
+				"Standard Chartered Bank" => "Standard Chartered Bank",
+				"Sterling Bank" => "Sterling Bank",
+				"Union Bank" => "Union Bank",
+				"United Bank for Africa(UBA)" => "United Bank for Africa(UBA)",
+				"Unity Bank" => "Unity Bank",
+				"Wema Bank" => "Wema Bank",
+				"Zenith Bank" => "Zenith Bank",
 			);
 
 		$this->form_validation->set_rules('first_name', 'First Name', 'required|min_length[3]|max_length[30]');
@@ -131,7 +131,7 @@ class Account extends CI_Controller {
         $this->form_validation->set_rules('mobile', 'Phone Number', 'required|min_length[11]|max_length[11]|numeric');
         $this->form_validation->set_rules('password', 'Password');
         $this->form_validation->set_rules('password_two', 'Repeat Password', 'matches[password]');
-        $this->form_validation->set_rules('bank_name', 'Bank Name', 'required|alpha_dash');
+        $this->form_validation->set_rules('bank_name', 'Bank Name', 'required|alpha_numeric_spaces');
         $this->form_validation->set_rules('account_name', 'Account Name', 'required');
         $this->form_validation->set_rules('account_number', 'Account Number', 'required|max_length[10]|numeric');
 
@@ -163,6 +163,7 @@ class Account extends CI_Controller {
 			
 		} else {
 			$this->data['message_to_user'] = validation_errors();
+			echo $this->input->post("bank_name");
 			// load the view needed
 			$this->_show_page("templates/top-header",$this->data);
 			$this->_show_page("templates/header",$this->data);
