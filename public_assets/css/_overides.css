@@ -14,3 +14,8 @@
 .no-border {
 	border-width: 0 !important;
 }
+
+.overide-box {
+	background: transparent;
+	box-shadow: none;
+}

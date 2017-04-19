@@ -1,0 +1,56 @@
+/** Your theme modifications here **/
+
+.navbar {
+	margin:0;
+}
+
+.slide-desc {
+	width:50%;
+	position:absolute;
+	top:25%;
+	left:25%;
+	color:white;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.slide-desc h3 {
+	font-size:3em;
+}
+
+.btn-flat {
+	border-radius:0;
+}
+
+.text-capitalize {
+	text-transform: capitalize;
+}
+
+.ribbon .theribbon {
+	width:200px;
+}
+
+.ribbon.message {
+	top:14px;
+}
+
+.ribbon.danger .theribbon{
+	background-color :#d43f3a;
+}
+
+.ribbon.danger .theribbon:after{
+	border-color: #a94442 #a94442 transparent transparent;
+}
+
+.simple-box {
+    margin-bottom: 60px;
+    background: #fff;
+    margin: 0 0 30px;
+    border: solid 1px #e6e6e6;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 20px;
+    -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}

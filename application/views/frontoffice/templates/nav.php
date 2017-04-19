@@ -5,7 +5,7 @@
 			<!-- Sidebar user panel -->
 			<div class="user-panel">
 				<div class="pull-left image">
-					<img src="<?php echo isset($single_user['profile_pic']) ? $single_user['profile_pic'] : get_image_url()."/avatar04.png"; ?>" class="img-circle" alt="User Image">
+					<img src="<?php echo isset($single_user['profile_picture']) ? $single_user['profile_picture'] : get_image_url()."/avatar04.png"; ?>" class="img-circle" alt="User Image">
 				</div>
 				<div class="pull-left info">
 					<p><?php echo $single_user['first_name'] . " " . $single_user['last_name']; ?></p>
@@ -15,7 +15,7 @@
 			<!-- sidebar menu: : style can be found in sidebar.less -->
 			<ul class="sidebar-menu">
 				<li class="header">MAIN NAVIGATION</li>
-				<li class="treeview active">
+				<li class="treeview">
 		          <a href="<?php echo site_url("frontoffice"); ?>">
 		            <i class="fa fa-home"></i> <span>Dashboard</span>
 		          </a>

@@ -50,27 +50,11 @@ class Welcome extends CI_Controller {
 		);
 
 		// login and register link
-		if($this->officekey->logged_in() && $this->officekey->is_frontoffice_user()) {
-			$this->data['navigation_menu']['special_links'] = array(
-				"your profile" => site_url("account/user_profile"),
-				"the frontoffice" => site_url("frontoffice/dashboard/welcome"),
-				"logout" => site_url('account/logout'),
-			);
-		} 
-		elseif($this->officekey->logged_in() && $this->officekey->is_backoffice_user()) {
-			$this->data['navigation_menu']['special_links'] = array(
-				"your profile" => site_url("account/user_profile"),
-				"the backoffice" => site_url("backoffice/dashboard/welcome"),
-				"logout" => site_url('account/logout'),
-			);
-		}
-		else {
-			$this->data['navigation_menu']['special_links'] = array(
-				"login" => site_url('login'),
-				"register" => site_url("register"),
-				"contact us" => site_url('contact-us'),
-			);
-		}
+		$this->data['navigation_menu']['special_links'] = array(
+			"login" => site_url('frontoffice/account/login'),
+			"register" => site_url("frontoffice/account/register"),
+			"contact us" => site_url('contact-us'),
+		);
 
 		// footer links
 		$this->data['navigation_menu']['footer_links_one'] = array(
@@ -78,26 +62,12 @@ class Welcome extends CI_Controller {
 				"privacy policies" => site_url("privacy-policies"),
 				"FAQ" => site_url("#faq"),
 			);
-		if($this->officekey->logged_in() && $this->officekey->is_frontoffice_user()) {
-			$this->data['navigation_menu']['footer_links_two'] = array(
-				"logout from the frontoffice" => site_url('account/logout'),
-				"Enter the FrontOffice" => site_url("frontoffice/dashboard/welcome"),
-			);
-		}
-		elseif($this->officekey->logged_in() && $this->officekey->is_backoffice_user()) {
-			$this->data['navigation_menu']['footer_links_two'] = array(
-				"logout from the backoffice" => site_url('account/logout'),
-				"Enter the BackOffice" => site_url("backoffice/dashboard/welcome"),
-			);
-		}
-		else {
-			$this->data['navigation_menu']['footer_links_two'] = array(
-					"login" => site_url('login'),
-					"register" => site_url("register"),
-					"terms and conditions" => site_url('terms-and-conditions'),
-					"the backOffice" => site_url("backoffice"),
-			);
-		}
+		$this->data['navigation_menu']['footer_links_two'] = array(
+				"login" => site_url('login'),
+				"register" => site_url("register"),
+				"terms and conditions" => site_url('terms-and-conditions'),
+				"the backOffice" => site_url("backoffice"),
+		);
 
 		if(!$this->config->item("use_cdn")):
 			// scripts to be loaded in the head templates
@@ -127,9 +97,6 @@ class Welcome extends CI_Controller {
 			$this->data['javascript']['plugins'] = get_js_url().'/plugins.js';
 			$this->data['javascript']['main'] = get_js_url().'/main.js';
 		endif;
-
-		// check what the session is spitting out
-		// print_r($this->session->userdata());
 	}
 
 	/**

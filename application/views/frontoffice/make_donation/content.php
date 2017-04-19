@@ -29,6 +29,26 @@
 			</div>
 			<!-- /.box -->
 
+			<?php if($error_messages): ?>
+				<div class="alert alert-danger inner_alert alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4>
+						<i class="fa fa-info-circle"></i> Alert
+					</h4>
+					<?php  echo ucwords($error_messages); ?>
+				</div>
+			<?php endif; ?>
+
+			<?php if($success_messages): ?>
+				<div class="alert alert-success inner_alert alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4>
+						<i class="fa fa-info-circle"></i> Alert
+					</h4>
+					<?php  echo ucwords($success_messages); ?>
+				</div>
+			<?php endif; ?>
+
 			<!-- donations info box -->
 			<div class="box bg-red box-solid">
 				<div class="box-header with-border">
@@ -63,60 +83,23 @@
 					</div>
 				</div>
 				<div class="box-body">
+				<?php $c_b = count($packages_selectable); ?>
+				<?php for($x = 0; $x < $c_b; $x++) { ?>
 					<div class="col-md-3 col-sm-6">
-						<div class="box box-primary box-solid">
+						<div class="box box-<?php echo $packages_selectable[$x]['class']; ?> box-solid">
 							<div class="box-header with-border text-center show-block">
-								<h3 class="box-title">Starter Package</h3>
+								<h3 class="box-title"><?php echo strtoupper($packages_selectable[$x]['type']); ?></h3>
 							</div>
 							<div class="box-body text-center">
-								<h4 class="text-muted"> PAY </h4> <h3> N5,000 </h3> <h4 class='text-muted'> RECEIVE </h2> <h1> N10,000 </h1>
+								<h4 class="text-muted"> PAY </h4> <h3> N<?php echo number_format($packages_selectable[$x]['amount']); ?> </h3> <h4 class='text-muted'> RECEIVE </h2> <h1>  N<?php echo number_format($packages_selectable[$x]['amount'] * 2); ?> </h1>
 							</div>
 							<div class="box-footer text-center">
-								<a href="#" class="btn btn-primary btn-flat">Select Package</a>
+								<a href="<?php echo site_url("frontoffice/donation/make/".$packages_selectable[$x]['id']); ?>" class="btn btn-primary btn-flat">Select Package</a>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-3 col-sm-6">
-						<div class="box box-danger box-solid">
-							<div class="box-header with-border text-center show-block">
-								<h3 class="box-title">Bronze Package</h3>
-							</div>
-							<div class="box-body text-center">
-								<h4 class="text-muted"> PAY </h4> <h3> N10,000 </h3> <h4 class='text-muted'> RECEIVE </h2> <h1> N20,000 </h1>
-							</div>
-							<div class="box-footer text-center">
-								<a href="#" class="btn btn-danger btn-flat">Select Package</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6">
-						<div class="box box-success box-solid">
-							<div class="box-header with-border text-center show-block">
-								<h3 class="box-title">Silver Package</h3>
-							</div>
-							<div class="box-body text-center">
-								<h4 class="text-muted"> PAY </h4> <h3> N30,000 </h3> <h4 class='text-muted'> RECEIVE </h2> <h1> N60,000 </h1>
-							</div>
-							<div class="box-footer text-center">
-								<a href="#" class="btn btn-success btn-flat">Select Package</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-6">
-						<div class="box box-info box-solid">
-							<div class="box-header with-border text-center show-block">
-								<h3 class="box-title">
-									Gold Package
-								</h3>
-							</div>
-							<div class="box-body text-center">
-								<h4 class="text-muted"> PAY </h4> <h3> N50,000 </h3> <h4 class='text-muted'> RECEIVE </h4> <h1> N100,000 </h1>
-							</div>
-							<div class="box-footer text-center">
-								<a href="#" class="btn btn-info btn-flat">Select Package</a>
-							</div>
-						</div>
-					</div>
+
+					<?php } ?>
 				</div>
 				<!-- /.box-body -->
 			</div>
@@ -127,3 +110,9 @@
 	</div> <!-- #ajax_holder -->
 </div>
 <!-- /.content-wrapper -->
+
+<script>
+	jQuery(document).ready(function($) {
+		$("ul.sidebar-menu li > a[href='<?php echo site_url("frontoffice/donation/make"); ?>']").parent().addClass("active");
+	});
+</script>

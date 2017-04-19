@@ -37,7 +37,9 @@
 							</div>
 						</div>
 						<div class="box-body text-center center-block">
-							<img src="<?php echo isset($single_user['profile_pic']) ? $single_user['profile_pic'] : get_image_url()."/avatar04.png"; ?>" alt="<?php echo $first_name ."-".$last_name."-profile-picture"; ?>" class="img-circle">
+							<img src="<?php echo isset($single_user['profile_picture']) ? $single_user['profile_picture'] : get_image_url()."/avatar04.png"; ?>" alt="<?php echo $first_name ."-".$last_name."-profile-picture"; ?>" class="img-circle img-responsive">
+							<br><br>
+							<a class="btn bg-navy btn-block" href="<?php echo site_url("frontoffice/account/edit_profile"); ?>">Edit Profile</a>
 						</div>
 					</div>
 					<!-- /.box -->

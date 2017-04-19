@@ -219,6 +219,35 @@ class OfficeKey {
 
 		return true;
 	}
+
+	public function change_password($id,$old_password = "",$new_password="",$table_name = "frontoffice"){
+		$query = $this->officekey_model->edit_office_user($id,$table_name);
+
+		// password
+		$password_db = $query['password'];
+
+		if(password_verify($old_password,$password_db)){
+			// convert the new password to the required hash
+			$new_password = password_hash($new_password,$this->config->item("hashing_method"));
+
+			// send the new password to be updated
+			$this->update_frontoffice_user($id,array("password" => $new_password));
+			return true;
+		} else {
+			$this->session->set_flashdata("change_password_messages","The Current Password You entered does not match with the one in the database, try again!");
+			return false;
+		}
+	}
+
+	public function check_if_user_exist($email = NULL) {
+		$query = $this->officekey_model->check_user_email($email);
+
+		if($query) {
+			return true;
+		} else {
+			return false;
+		}
+	}
  
 	/**
 	 * [_debug_result description]

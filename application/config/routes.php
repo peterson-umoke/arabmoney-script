@@ -49,34 +49,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'guest_homepage/welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = TRUE;
 
 // backoffice routes
-$route['backoffice'] = "backoffice/account/login";
+$route['backoffice'] = "backoffice/dashboard";
 $route['backoffice/login'] = "backoffice/account/login";
 $route['backoffice/forgot_password'] = "backoffice/account/forgot_password";
 $route['backoffice/logout'] = "backoffice/account/logout";
 
 // set special url for the guest views
-$route['contact-us'] = "welcome/contact_us";
-$route['about-us'] = "welcome/about_us";
-$route['login'] = "welcome/login";
-$route['register'] = "welcome/register";
-$route['privacy-policy'] = "welcome/privacy_policies";
-$route['privacy-policies'] = "welcome/privacy_policies";
-$route['terms-and-conditions'] = "welcome/terms_and_conditions";
-$route['account/login'] = "welcome/login";
-$route['account/register'] = "welcome/register";
-$route['account/forgot_password'] = "welcome/forgot_password";
-$route['account/change_password'] = "welcome/change_password";
-$route['account/logout'] = "welcome/logout";
-$route['index.html'] = "welcome/index";
+$route['contact'] = "guest_homepage/contact";
+$route['about'] = "guest_homepage/about";
+$route['login'] = "frontoffice/account/login";
+$route['check-login'] = "guest_homepage/check_login";
+$route['register'] = "guest_homepage/register";
+$route['create_user'] = "guest_homepage/create_user";
+$route['faq'] = "guest_homepage/faq";
+$route['view-blog'] = "guest_homepage/view_blog";
+$route['(.*)/(.*)/register'] = "guest_homepage/register";
+$route['privacy-policy'] = "guest_homepage/privacy_policies";
+$route['privacy-policies'] = "guest_homepage/privacy_policies";
+$route['terms-and-conditions'] = "guest_homepage/terms_and_conditions";
+$route['account/login'] = "guest_homepage/login";
+$route['account/register'] = "guest_homepage/register";
+$route['account/forgot_password'] = "guest_homepage/forgot_password";
+$route['account/change_password'] = "guest_homepage/change_password";
 
 // frontoffice routes
 $route['frontoffice/logout'] = "account/logout";
-$route['frontoffice/account/login'] = "welcome/login";
 $route['frontoffice/dashboard/welcome'] = "frontoffice/dashboard";
 $route['frontoffice'] = "frontoffice/dashboard";
 $route['frontoffice/welcome'] = "frontoffice/dashboard";
+$route['frontoffice/(.*)/add_new_testimonial'] = "frontoffice/testimonies/add_new_testimonial";
+$route['frontoffice/donation/index'] = "frontoffice/donation/make";
+$route['frontoffice/donation/(:num)'] = "frontoffice/donation/make/$1";
+$route['frontoffice/dashboard/(:num)'] = "frontoffice/dashboard/index/$1";

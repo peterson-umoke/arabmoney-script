@@ -12,19 +12,14 @@ class Dashboard extends CI_Controller {
 
         // initiate the data attribute
         $this->data = array();
+
+        // redirect the user is the user is not logged in
+        if(!$this->officekey->is_backoffice_user()) {
+            redirect('backoffice/account/login?redirect_page='.urlencode(site_url(uri_string())).'&&userauth=1', 'refresh');
+        }
     }
 
     public function index() {
 
     }
-
-    public function welcome() {
-        echo "welcome to the admin backend";
-        echo "\n ".$this->session->userdata("account_type");
-    }
-
-    public function __destruct() {
-        
-    }
-
 }

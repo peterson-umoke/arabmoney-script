@@ -11,6 +11,7 @@ class Donation extends CI_Controller {
 		// loaders
 		$this->load->helper("string");
 		$this->load->config("assets");
+		$this->load->model("donation_model");
 
 		// initiate the data attribute
 		$this->data = array();
@@ -41,38 +42,60 @@ class Donation extends CI_Controller {
 		$this->data['javascript']['pace'] = get_plugins_url().'/pace/pace.min.js';
 		$this->data['javascript']['app'] = get_js_url().'/app.min.js';
 		$this->data['javascript']['main'] = get_js_url().'/main.js';
-		$this->data['javascript']['main'] = get_js_url().'/ajax_pacesetting.js';
+		// $this->data['javascript']['main'] = get_js_url().'/ajax_pacesetting.js';
 
 		// redirect the user is the user is not logged in
 		if(!$this->officekey->is_frontoffice_user()) {
-			redirect('login?secret_key='.random_string('alnum',300).'&&redirect_page='.urlencode(site_url('frontoffice/account/login')).'&&userauth=1', 'refresh');
+			redirect('login?secret_key='.random_string('alnum',300).'&&redirect_page='.urlencode(site_url(uri_string())).'&&userauth=1', 'refresh');
 		}
 	}
 
-	public function index() {
+	public function make($case = null) {
+
 		//data
+		$this->data['error_messages'] = $this->session->flashdata("error_information_message") ? $this->session->flashdata("error_information_message") : "";
+    	$this->data['success_messages'] = $this->session->flashdata("success_information_message") ? $this->session->flashdata("success_information_message") : "";
+
+    	// session
+		$current_user = $this->session->userdata("user_id");
+
+		$this->data['packages_selectable'] = $this->donation_model->donation_packages();
 		$this->data['title'] = "Make Donations";
 		$this->data['page_title'] = "<i class='fa fa-tripadvisor'></i> Make Payment";
 		$this->data['description'] = "Here you can choose which package buy into";
 		$this->data['single_user'] = $this->officekey->user();
 		$this->data['seo_description'] = "Here you can choose which package buy into";
 
-		// load the view needed
-		$this->_show_page("templates/top-header",$this->data);
-		$this->_show_page("templates/header",$this->data);
-		$this->_show_page("templates/nav",$this->data);
-		$this->_show_page("make_donation/content",$this->data);
-		$this->_show_page("templates/footer",$this->data);
-		$this->_show_page("templates/bottom-footer",$this->data);
-	}
+		// model
+		$is_paired = $this->donation_model->check_paired_accounts();
 
-	public function make() {
-		//data
-		$this->data['title'] = "Make Donations";
-		$this->data['page_title'] = "<i class='fa fa-tripadvisor'></i> Make Payment";
-		$this->data['description'] = "Here you can choose which package buy into";
-		$this->data['single_user'] = $this->officekey->user();
-		$this->data['seo_description'] = "Here you can choose which package buy into";
+		if($is_paired != 1) {
+			switch($case) {
+				case 1:
+					$package = $this->data['packages_selectable'][0]['amount'];
+					break;
+				case 2:
+					$package = $this->data['packages_selectable'][1]['amount'];
+					break;
+				case 3:
+					$package = $this->data['packages_selectable'][2]['amount'];
+					break;
+				case 4:
+					$package = $this->data['packages_selectable'][3]['amount'];
+					break;
+				default:
+					$package = null;
+					break;
+
+			}
+			if(!is_null($package)):
+				if($this->donation_model->make_donation($current_user,$package)){
+					$this->session->set_flashdata('success_information_message', 'you have currently selected the N'.number_format($package)." package");
+				}
+			endif;
+		} else {
+			$this->session->set_flashdata("success_information_message","you are currently paired, see all the related information on your <a href='".site_url("frontoffice")."' class='alert-link'> dashboard </a>");
+		}
 
 		// load the view needed
 		$this->_show_page("templates/top-header",$this->data);
@@ -95,7 +118,7 @@ class Donation extends CI_Controller {
 		$this->_show_page("templates/top-header",$this->data);
 		$this->_show_page("templates/header",$this->data);
 		$this->_show_page("templates/nav",$this->data);
-		$this->_show_page("make_donation/content",$this->data);
+		$this->_show_page("request_history/content",$this->data);
 		$this->_show_page("templates/footer",$this->data);
 		$this->_show_page("templates/bottom-footer",$this->data);
 	}
@@ -112,7 +135,7 @@ class Donation extends CI_Controller {
 		$this->_show_page("templates/top-header",$this->data);
 		$this->_show_page("templates/header",$this->data);
 		$this->_show_page("templates/nav",$this->data);
-		$this->_show_page("make_donation/content",$this->data);
+		$this->_show_page("make_history/content",$this->data);
 		$this->_show_page("templates/footer",$this->data);
 		$this->_show_page("templates/bottom-footer",$this->data);
 	}
@@ -125,5 +148,16 @@ class Donation extends CI_Controller {
 	 */
 	public function _show_page($src = "",$args = array(),$bool = FALSE) {
 		return $this->load->view("frontoffice/".$src,$args,$bool);
+	}
+
+	/**
+	 * the _debug method used to print array in the right format for the admin to use
+	 * @param  array  $x the argument for the print_r function
+	 * @return array 
+	 */
+	public function _debug($x = array()) {
+		echo "<pre>";
+		print_r($x);
+		echo "</pre>";
 	}
 }

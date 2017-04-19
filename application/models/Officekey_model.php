@@ -406,4 +406,26 @@ class Officekey_model extends CI_Model {
     		return false;
     	}
     }
+
+    public function check_id($id = NULL,$tablename = "frontOffice_users") {
+    	$id = $this->session->userdata("user_id");
+
+    	$query = $this->db->get_where($tablename,array("id"=>$id));
+
+    	if($query->num_rows() == 1) {
+    		return true;
+    	} else {
+    		return false;
+    	}
+    }
+
+    public function check_user_email($email , $table = "frontoffice_users") {
+    	$q = $this->db->get_where($table, array("email" => $email));
+
+    	if($q->num_rows() == 1) {
+    		return true;
+    	} else {
+    		return false;
+    	}
+    }
 }

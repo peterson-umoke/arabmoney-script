@@ -42,13 +42,13 @@
 				<!-- User Account: style can be found in dropdown.less -->
 				<li class="dropdown user user-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<img src="<?php echo isset($single_user['profile_pic']) ? $single_user['profile_pic'] : get_image_url()."/avatar04.png"; ?>" class="user-image" alt="User Image">
+						<img src="<?php echo isset($single_user['profile_picture']) ? $single_user['profile_picture'] : get_image_url()."/avatar04.png"; ?>" class="user-image" alt="User Image">
 						<span class="hidden-xs"><?php echo $single_user['first_name'] . " " . $single_user['last_name']; ?></span>
 					</a>
 					<ul class="dropdown-menu">
 						<!-- User image -->
 						<li class="user-header">
-							<img src="<?php echo isset($single_user['profile_pic']) ? $single_user['profile_pic'] : get_image_url()."/avatar04.png"; ?>" class="img-circle" alt="User Image">
+							<img src="<?php echo isset($single_user['profile_picture']) ? $single_user['profile_picture'] : get_image_url()."/avatar04.png"; ?>" class="img-circle" alt="User Image">
 
 							<p>
 								<?php echo $single_user['first_name'] . " " . $single_user['last_name']; ?>

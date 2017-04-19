@@ -49,10 +49,21 @@ jQuery(document).ready(function($) {
 	
 	// add active to certain navigation links
 	var url_click = window.location.origin + window.location.pathname;
-	if(url_click == "http://localhost/arabnaira/frontoffice/account/edit_profile" || url_click == "http://localhost/arabnaira/frontoffice/account") {
+	if(url_click == "http://localhost/arabnaira/frontoffice/account/edit_profile") {
 		$("ul.sidebar-menu li").removeClass("active");
         $("ul.sidebar-menu li > a[href='http://localhost/arabnaira/frontoffice/account']").parent().addClass("active");
 	}
+	if(url_click == "http://localhost/arabnaira/frontoffice/dashboard/" || url_click == "http://localhost/arabnaira/frontoffice/dashboard/welcome") {
+		$("ul.sidebar-menu li").removeClass("active");
+        $("ul.sidebar-menu li > a[href='http://localhost/arabnaira/frontoffice']").parent().addClass("active");
+	}
+	$("ul.sidebar-menu li a").each(function(index, el) {
+		var this_url = $(this).attr('href');
+		if(this_url == url_click) {
+			$("ul.sidebar-menu li").removeClass("active");
+	        $("ul.sidebar-menu li > a[href='"+this_url+"']").parent().addClass("active");		
+		}
+	});
 });
 </script>
 
@@ -63,7 +74,7 @@ jQuery(document).ready(function($) {
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body class="hold-transition skin-red sidebar-mini">
+<body class="hold-transition skin-red sidebar-mini <?php echo isset($body_extra_classes) ? $body_extra_classes : ""; ?>">
 <noscript> YOU NEED JAVASCRIPT TO USE THIS SITE PROPERLY </noscript>
 
 <!--[if lt IE 8]>
